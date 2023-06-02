@@ -148,11 +148,14 @@ public class CalcFrame extends JFrame implements ActionListener {
                 nlnput="";
                 label.setText("0");
             case "<--":
-                int i = label.getText().length();
-                if (!label.getText().equals("0")) {
-                    label.setText(label.getText().substring(0, i - 1));
-                } else if(i<1)
+                if(getBackSpace().length()<1){
+                    nlnput="";
+                    num2=0;
+                    num1=0;
                     label.setText("0");
+                }
+                else
+                    setBackSpace(getBackSpace().substring(0,getBackSpace().length()-1));
                 break;
             case ".":
                 if (!label.getText().contains("."))
